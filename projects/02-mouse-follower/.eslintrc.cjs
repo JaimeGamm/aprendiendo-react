@@ -21,10 +21,6 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react'],
-  settings: {
-    react: {
-      version: '^18.2.0'
-    }
-  },
+  settings: {},
   rules: {}
 }

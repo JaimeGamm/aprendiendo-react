@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react"
 import './App.css'
 
-function App() {
-    const [enabled, setEnable] = useState(false)
+const FollowMouse  = () => {
+  const [enabled, setEnable] = useState(false)
     const [position, setPosition] = useState({x: 0, y: 0})
     useEffect(() =>{
       console.log('efecto')
@@ -18,9 +18,9 @@ function App() {
         window.removeEventListener('pointermove',handlemove)
       }
     })
-    return (
-      <main>
-        <div style={{
+  return (
+    <>
+      <div style={{
         position: 'absolute',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         border: '1px solid #fff',
@@ -37,6 +37,17 @@ function App() {
 
         
         <button onClick={()=>setEnable(!enabled)}>{enabled ? 'Desactivar': 'Activar'} seguir puntero</button>
+    </>
+  )
+}
+function App() {
+  const [mounted, setMounter] = useState(true)
+    return (
+      <main>
+        {mounted&&<FollowMouse/>}
+        <button onClick={()=>setMounter(!mounted)}>
+          Toggle mounted FollowMouse componente
+        </button>
       </main>
       
     )
