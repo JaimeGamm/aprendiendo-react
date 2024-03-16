@@ -11,13 +11,22 @@ const FollowMouse  = () => {
         console.log('handlemover', {clientX, clientY})
         setPosition({x:clientX, y:clientY})
       }
+
       if(enabled){
         window.addEventListener('pointermove',handlemove)
       }
       return () =>{
         window.removeEventListener('pointermove',handlemove)
       }
-    })
+    },[enabled])
+
+    useEffect(()=>{
+      document.body.classList.toggle('no-cursor',enabled)
+      return() => {
+        document.body.classList.remove('no-cursor')
+      }
+    },[enabled])
+
   return (
     <>
       <div style={{
@@ -42,6 +51,7 @@ const FollowMouse  = () => {
 }
 function App() {
   const [mounted, setMounter] = useState(true)
+
     return (
       <main>
         {mounted&&<FollowMouse/>}
