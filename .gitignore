@@ -1,3 +1,4 @@
 projects/01-tic-tac-toe/package-lock.json
 projects/01-tic-tac-toe/node_modules
 projects/01-tic-tac-toe/.gitignore
+.vscode
