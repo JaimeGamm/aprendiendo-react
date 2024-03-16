@@ -1,4 +1,5 @@
 projects/01-tic-tac-toe/package-lock.json
 projects/01-tic-tac-toe/node_modules
-projects/01-tic-tac-toe/.gitignore
+.gitignore
+projects/02-mouse-follower/node_modules
 .vscode
