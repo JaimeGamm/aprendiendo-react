@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --ext js, jsx --report-unused-disable-directives --max-warnings 0, eslint . --fix",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
@@ -27,6 +27,8 @@
     "react-dom": "18.2.0"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
   }
 }
