@@ -3,3 +3,6 @@ projects/01-tic-tac-toe/node_modules
 .gitignore
 projects/02-mouse-follower/node_modules
 .vscode
+projects/02-mouse-follower/package-lock.json
+pruebas tecnicas/react-prueba-tecnica-01/node_modules
+pruebas tecnicas/react-prueba-tecnica-01/package-lock.json
