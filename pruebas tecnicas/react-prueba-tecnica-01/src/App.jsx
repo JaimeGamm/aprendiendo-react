@@ -4,16 +4,8 @@ import './App.css'
 
 
 //const CAT_ENDPOINT_IMAGE_URL = `https://cataas.com/cat/says/${firsWord}?size=50&color=red&json=true`
-export default function App (){
-    const [fact, setFact] =  useState()
+function useCatImage({fact}){
     const [imgenUrl, setImageUrl] = useState(null)
-
-    //para recupera la cita de la pagina
-    useEffect(() =>{
-        getRandomFact().then(newFact=>setFact(newFact))
-    },[])
-
-    //para cargar la imagen
     useEffect(()=>{
         if(!fact)
         return
@@ -28,6 +20,19 @@ export default function App (){
                 }
                 )
     },[fact])
+    return {imgenUrl}
+}
+export default function App (){
+    const [fact, setFact] =  useState()
+    const {imgenUrl} = useCatImage({fact})
+
+    //para recupera la cita de la pagina
+    useEffect(() =>{
+        getRandomFact().then(newFact=>setFact(newFact))
+    },[])
+
+    //para cargar la imagen
+   
     const handleClick = async () =>{
        const newFact = await getRandomFact()
        setFact(newFact)
