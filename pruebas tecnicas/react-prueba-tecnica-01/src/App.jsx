@@ -7,16 +7,17 @@ export default function App (){
     const [fact, setFact] =  useState()
     const [imgenUrl, setImageUrl] = useState(null)
 
-    //para recupera la cita de la pagina
-    useEffect(()=>{
+    const getRandomFact=()=>{
         fetch(CAT_ENDPOINT_RANDOM_FACT)
         .then(res => res.json())
         .then(data => {
             const { fact } = data
             setFact(fact)
             })
-              
-    },[])
+    }
+
+    //para recupera la cita de la pagina
+    useEffect(getRandomFact,[])
 
     //para cargar la imagen
     useEffect(()=>{
@@ -33,9 +34,13 @@ export default function App (){
                 }
                 )
     },[fact])
+    const handleClick =() =>{
+        getRandomFact()
+    }
     return (
         <main>
             <h1>app de gatos</h1>
+            <button onClick={handleClick}>Get new fact</button>
             <section>
                 {fact&&<p>{fact}</p>}
                 {imgenUrl&& <img src={imgenUrl} alt= {`cat ${fact}`}/>}
